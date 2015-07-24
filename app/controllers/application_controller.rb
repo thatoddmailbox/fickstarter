@@ -54,14 +54,13 @@ class ApplicationController < Sinatra::Base
     erb :info, :layout => :layout
   end
   
-<<<<<<< HEAD
   get "/create" do
     erb :create, :layout => :layout
-=======
+  end
+  
   helpers do
     def h(text)
       Rack::Utils.escape_html(text)
     end
->>>>>>> ecfbcbf2037ad651ca6b6b270c91c735f75b9031
   end
 end
