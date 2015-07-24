@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by_username(params[:username])
     session[:logged_in] = true
     session[:user_id] = @user.id
-    erb :projects, :layout => :layout
+    redirect to("/projects")
   end
   
   get "/signup" do
@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
     @user.save
     session[:logged_in] = true
     session[:user_id] = @user.id
-    erb :projects, :layout => :layout
+    redirect to("/projects")
   end
   
   get "/logout" do    

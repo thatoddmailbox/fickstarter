@@ -36,8 +36,13 @@
             <li><a href="/projects">Projects</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <% if session[:logged_in] %>
+            <li class="navbar-text"><%= Rack::Utils.escape_html(User.find(session[:user_id]).username) %></li>
+            <li><a href="/logout">Log out</a></li>
+            <% else %>
             <li><a href="/signup">Sign up</a></li>
             <li><a href="/login">Log in</a></li>
+            <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
