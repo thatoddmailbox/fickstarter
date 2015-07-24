@@ -53,4 +53,10 @@ class ApplicationController < Sinatra::Base
     @project = Project.find(params[:project_id])
     erb :info, :layout => :layout
   end
+  
+  helpers do
+    def h(text)
+      Rack::Utils.escape_html(h)
+    end
+  end
 end
