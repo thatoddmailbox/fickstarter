@@ -53,4 +53,8 @@ class ApplicationController < Sinatra::Base
     @project = Project.find(params[:project_id])
     erb :info, :layout => :layout
   end
+  
+  get "/create" do
+    erb :create, :layout => :layout
+  end
 end
