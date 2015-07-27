@@ -59,7 +59,6 @@ class ApplicationController < Sinatra::Base
   get "/info/:project_id" do
     @project = Project.find(params[:project_id])
     erb :info, :layout => :layout
-    
   end
   
   get "/create" do
@@ -73,11 +72,13 @@ class ApplicationController < Sinatra::Base
     redirect to("/info/" + @project.id.to_s)
   end
   
+  get "/proflie" do
+    erb :profile, :layout => :layout 
+  end
+  
   helpers do
     def h(text)
       Rack::Utils.escape_html(text)
     end
   end
-  
- 
 end
