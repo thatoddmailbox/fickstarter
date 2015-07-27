@@ -1,5 +1,5 @@
 <h1>Projects</h1>
 <% projects = Project.all %>
-<% projects.each do |project| %>
-  <h1><%= h project.name %></h1>
+<% projects.each do |project| %> 
+<h1><a href="/info/<%=:project.id%>"><%= h project.name %></a></h1>
 <% end %>
