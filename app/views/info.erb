@@ -8,7 +8,7 @@ percent = 0
 donations.each do |donation|
   sum += donation.amount
 end
-percent = (sum.to_f / @project.target.to_f) * 100
+percent = ((sum.to_f / @project.target.to_f) * 100).to_i
 %>
 <p>WE HAVE $<%= sum %></p>
 <p>WE WANT $<%= h @project.target.to_s %></p>
