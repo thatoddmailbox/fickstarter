@@ -10,11 +10,15 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/emojione/1.5.0/lib/js/emojione.min.js"></script>
+    <script src="/js/jquery.linkify.min.js"></script>
     
     <script>
       $(document).ready(function() {
         emojione.ascii = true;
         $(".project-desc").html(emojione.toImage($(".project-desc").html()));
+        $(".project-desc").linkify({
+          target: "_blank"
+        });
       });
     </script>
     
