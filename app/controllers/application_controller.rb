@@ -12,6 +12,10 @@ class ApplicationController < Sinatra::Base
   set :views, "app/views"
   set :public_folder, "public"
   
+  before do
+    @username = User.find(session[:user_id]).username
+  end
+  
   get "/" do
     erb :index, :layout => :layout
   end
