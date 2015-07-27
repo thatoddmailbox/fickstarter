@@ -14,7 +14,8 @@ class ApplicationController < Sinatra::Base
   
   before do
     if session[:logged_in]
-      @username = User.find(session[:user_id])
+      @user = User.find(session[:user_id])
+      @username = @user.username
     end
   end
   
