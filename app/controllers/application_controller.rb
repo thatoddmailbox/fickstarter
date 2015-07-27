@@ -81,7 +81,7 @@ class ApplicationController < Sinatra::Base
       Rack::Utils.escape_html(text)
     end
   end
-<<<<<<< HEAD
+
   
   post "/donation" do
     @donation = Donation.new(:amount => params[:amount])
@@ -90,6 +90,5 @@ class ApplicationController < Sinatra::Base
     @donation.save
     erb :donation
   end
-=======
->>>>>>> f32e1489f8e990d962cf1a7d963addf031bedbab
+
 end
