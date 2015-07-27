@@ -58,6 +58,10 @@ class ApplicationController < Sinatra::Base
     erb :create, :layout => :layout
   end
   
+  post "/create" do
+    @project = Project.new()
+  end
+  
   helpers do
     def h(text)
       Rack::Utils.escape_html(text)
