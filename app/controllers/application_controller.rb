@@ -79,5 +79,11 @@ class ApplicationController < Sinatra::Base
     end
   end
   
- 
+  post "/donation" do
+    @donation = Donation.new(:amount => params[:amount])
+    @donation.user = @user
+    @donation.project_id = params[:project]
+    @donation.save
+    erb :donation
+  end
 end

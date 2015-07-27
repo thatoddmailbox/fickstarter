@@ -2,5 +2,8 @@
 <p class="project-desc"><%= h @project.description %></p>
 <p>WE WANT $<%= h @project.target.to_s %></p>
 
-<input type="text" name="donation" placeholder="donation" class="form-control">
+<form action="/donation" method="POST">
+<input type="hidden" name="project" value="<%@project.id%>">
+<input type="number" name="amount" placeholder="donation" class="form-control">
 <input type="submit" value="donate">
+</form>
