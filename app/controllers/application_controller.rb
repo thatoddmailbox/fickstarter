@@ -13,7 +13,10 @@ class ApplicationController < Sinatra::Base
   set :public_folder, "public"
   
   before do
-    @username = User.find(session[:user_id]).username
+    if session[:logged_in]
+      @user = User.find(session[:user_id])
+      @username = @user.username
+    end
   end
   
   get "/" do
