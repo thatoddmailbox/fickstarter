@@ -59,7 +59,10 @@ class ApplicationController < Sinatra::Base
   end
   
   post "/create" do
-    @project = Project.new()
+    @project = Project.new(:name => params[:name], :description => params[:description], :target => params[:target], :end_date => params[:end_date])
+    @project.save
+    
+    redirect to("/info/" + @project.id.to_s)
   end
   
   helpers do
