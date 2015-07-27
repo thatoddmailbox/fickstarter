@@ -84,11 +84,15 @@ class ApplicationController < Sinatra::Base
 
   
   post "/donation" do
+    if params[:amount].to_i > 0
     @donation = Donation.new(:amount => params[:amount])
     @donation.user = @user
     @donation.project_id = params[:project]
     @donation.save
     erb :donation
+    else
+      "You suck"
+    end
   end
 
 end
