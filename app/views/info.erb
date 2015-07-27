@@ -4,17 +4,18 @@
 <%
 donations = Donation.where(["project_id = ?", @project.id])
 sum = 0
+percent = 0
 donations.each do |donation|
-  puts "HI"
-  puts donation.inspect
   sum += donation.amount
 end
+percent = (sum.to_f / @project.target.to_f) * 100
 %>
-<p> WE HAVE $<%= sum %></p>
+<p>WE HAVE $<%= sum %></p>
 <p>WE WANT $<%= h @project.target.to_s %></p>
+<p>That is <%= percent %>%</p>
 <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-    <span class="sr-only">60% Complete</span>
+  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<%=percent%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent%>%;">
+    <span class="sr-only"><%=percent%>% Complete</span>
   </div>
 </div>
 
