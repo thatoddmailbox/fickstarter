@@ -14,7 +14,8 @@ class ApplicationController < Sinatra::Base
   
   before do
     if session[:logged_in]
-      @username = User.find(session[:user_id])
+      @user = User.find(session[:user_id])
+      @username = @user.username
     end
   end
   
@@ -58,6 +59,7 @@ class ApplicationController < Sinatra::Base
   get "/info/:project_id" do
     @project = Project.find(params[:project_id])
     erb :info, :layout => :layout
+    
   end
   
   get "/create" do
@@ -76,4 +78,6 @@ class ApplicationController < Sinatra::Base
       Rack::Utils.escape_html(text)
     end
   end
+  
+ 
 end
